@@ -12,12 +12,16 @@ html, body{
 	width:100%;
 	align-items: center; 
 	background-color: #000;
+	color: #edeef0;
+	background-position: center;
+	background-repeat: no-repeat; 
+	background-image: url(https://orig00.deviantart.net/e653/f/2010/181/b/8/elegant_leather_by_ah_mediadesigns.jpg);
 }
 	.game .header {
 		height: 20vmin;
 		width: 80vmin;
 		font-size: 5vmin;
-		background-color: #fff;
+		background-color: transparent;
 		border-bottom: 1px solid black;
 	}
 
@@ -28,6 +32,7 @@ html, body{
 		width: 80vmin;
 		background-color: #fff;
 		flex-wrap:  wrap;
+		background-color: transparent;
 	}
 
 		.game .field .cell {
