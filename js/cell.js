@@ -10,7 +10,6 @@ class Cell{
 		if(Math.random() > 0.8){
 			this.spawn();
 		}
-		//this.element.onclick = this.merge.bind(this);
 	}
 
 	get value(){
@@ -33,6 +32,8 @@ class Cell{
 		}
 		new AnimateCell(cell, this);
 		this.value += cell.value;
+
+		this.big();
 		cell.clear();
 	}
 
@@ -42,17 +43,30 @@ class Cell{
 
 	spawn(){
 		this.value = Math.random() > 0.9 ? 4 : 2;
+		this.big();
 	}
 
 	get isEmpty(){
 		return this.value == 0;
 	}
+
+	big(){
+		this.element.className = 'cell big';
+		let bigTime = 200;
+		let bigTimeStart = new Date();
+		this.bigTimeStart = bigTimeStart;
+		setTimeout(function(){
+			if( bigTimeStart == this.bigTimeStart){
+			this.element.className = 'cell';
+			}
+		}.bind(this),bigTime);
+	}
 }
 
 class AnimateCell{
 	constructor(cell1, cell2){
-		this.element = cell1.element.cloneNode(true);
-		this.element.className = 'cell animate';
+		this.element = createAndAppend({ className: 'cell animate'});
+		this.element.setAttribute('cell-color', cell1.element.getAttribute('cell-color'));
 		
 		this.element.style.top = cell1.element.offsetTop + 'px';
 		this.element.style.left = cell1.element.offsetLeft + 'px';
@@ -66,7 +80,7 @@ class AnimateCell{
 
 		setTimeout(function() {
 			cell1.fieldElement.removeChild(this.element);
-		}.bind(this), 1000);
+		}.bind(this), 200);
 
 		//cell2.element.offsetTop;
 		//cell2.element.offsetLeft;
