@@ -5,34 +5,32 @@ html, body{
 	height: 100%;
 }
 .game{
+	color: #776e65;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 	width:100%;
 	align-items: center; 
-	background-color: #000;
-	color: #edeef0;
-	background-position: center;
-	background-repeat: no-repeat; 
-	background-image: url(https://orig00.deviantart.net/e653/f/2010/181/b/8/elegant_leather_by_ah_mediadesigns.jpg);
-}
+	background-color: #edeef0;
+	}
 	.game .header {
 		height: 20vmin;
 		width: 80vmin;
 		font-size: 5vmin;
 		background-color: transparent;
-		border-bottom: 1px solid black;
 	}
 
 	.game .field {
+
+		position: relative;
 		display: flex;
 		flex-direction: row;
 		height: 80vmin;
 		width: 80vmin;
-		background-color: #fff;
+		background-color: #bbada0;
 		flex-wrap:  wrap;
-		background-color: transparent;
+		border-radius: 2vmin;		
 	}
 
 		.game .field .cell {
@@ -44,7 +42,61 @@ html, body{
 			width: 18vmin;
 			margin: 1vmin;
 			padding: 1px;
-			box-sizing: border-box; 
-			border: 2px solid green;
+			box-sizing: border-box;
 			border-radius: 2vmin;
+			background-color: rgba(238, 228, 218, 0.35);
+		}
+
+		.game .field .cell[cell-color="2"]{
+			background-color: #eee4da;
+		}
+
+		.game .field .cell[cell-color="4"]{
+			background-color: #ede0c8;
+		}
+		.game .field .cell[cell-color="8"]{
+			background-color: #f2b179;
+		}
+		.game .field .cell[cell-color="16"]{
+			background-color: #f59563;
+		}
+		.game .field .cell[cell-color="32"]{
+			background-color: #f67c5f;
+		}
+		.game .field .cell[cell-color="64"]{
+			background-color: #f65e3b;
+		}
+		.game .field .cell[cell-color="64"]{
+			background-color: #f65e3b;
+		}
+		.game .field .cell[cell-color="128"]{
+			background-color: #edcf72;
+		}
+		.game .field .cell[cell-color="256"]{
+			background-color: #edcc61;
+		}
+		.game .field .cell[cell-color="512"]{
+			background-color: #edc850;
+		}
+		.game .field .cell[cell-color="1024"]{
+			background-color: #edc53f;
+		}
+		.game .field .cell[cell-color="2048"]{
+			background-color: #edc22e;
+		}
+
+
+		.game .field .cell.animate {
+			position: absolute;
+			opacity: 0.5;
+			transition: left 0.5s, top 0.5s;
+			animation-name: hide;
+			animation-duration: 0.5s;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+			margin: 0 !important;
+		}
+		@keyframes hide {
+			from { opacity: 1; }
+			to { opacity: 0; }
 		}
